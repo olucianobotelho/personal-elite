@@ -482,7 +482,20 @@ function initFormSubmission() {
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
                 
-          await submitForm(data);
+                // Enviar dados para o backend
+                const response = await fetch('submit.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(result.message || 'Erro ao enviar formulário');
+                }
                 
                 // Mostrar mensagem de sucesso
                 const successMessage = showSuccessMessage();
