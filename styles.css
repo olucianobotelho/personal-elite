@@ -202,6 +202,19 @@
     transition: var(--transition);
     height: 100%;
   }
+
+  .benefit-item h3 {
+    margin: 20px 0 15px;
+    font-size: 1.5rem;
+    color: var(--primary);
+  }
+
+  .benefit-item p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
   
   .problem-item:hover, .benefit-item:hover {transform: translateY(-10px);}
   

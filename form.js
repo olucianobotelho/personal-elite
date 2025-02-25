@@ -483,7 +483,7 @@ function initFormSubmission() {
                 const data = Object.fromEntries(formData.entries());
                 
                 // Enviar dados para o backend serverless
-                const response = await fetch('/api/submit', {
+                const response = await fetch('https://formspree.io/f/xovjobaq', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -204,15 +204,12 @@
     margin-top: 12px;
     font-size: 0.85rem;
     color: #666;
-    background-color: rgba(0, 0, 0, 0.03);
     padding: 8px;
     border-radius: 4px;
     transition: all 0.3s ease;
     }
     
-    .styled-security:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    }
+    
     
     .security-icon {
     color: #28a745;
