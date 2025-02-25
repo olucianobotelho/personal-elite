@@ -8,14 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="credentials.css">
+    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="offer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/imask"></script>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">Personal Elite</a>
-            <button class="cta-button header-cta">Agendar Consulta <i class="fas fa-arrow-right"></i></button>
         </div>
     </header>
 
@@ -46,15 +48,47 @@
                         <p>Preencha para receber mais informações</p>
                     </div>
                     <form class="lead-form" id="leadForm">
-                        <input type="text" placeholder="Seu nome completo" required>
-                        <input type="email" placeholder="Seu melhor e-mail" required>
-                        <input type="tel" placeholder="Seu WhatsApp com DDD" required>
-                        <button type="submit" class="cta-button form-cta">QUERO TRANSFORMAR MEU CORPO <i class="fas fa-arrow-right"></i></button>
+                        <div class="name-age-wrapper">
+                            <div class="input-wrapper">
+                                <input type="text" name="nome" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="input-wrapper">
+                                <input type="number" name="idade" placeholder="Sua idade" min="16" max="99" required>
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="tel" name="whatsapp" placeholder="Seu WhatsApp com DDD" required>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="text" name="instagram" placeholder="Seu @ do Instagram (opcional)">
+                        </div>
+                        <div class="input-wrapper">
+                            <select name="experiencia" required>
+                                <option value="">Selecione sua experiência com treino</option>
+                                <option value="iniciante">Iniciante - Nunca treinei</option>
+                                <option value="intermediario">Intermediário - Treino há alguns meses</option>
+                                <option value="avancado">Avançado - Treino há mais de 1 ano</option>
+                            </select>
+                        </div>
+                        <div class="input-wrapper">
+                            <select name="inicio" required>
+                                <option value="">Quando pretende começar?</option>
+                                <option value="imediato">Imediatamente</option>
+                                <option value="15dias">Em até 15 dias</option>
+                                <option value="30dias">Em até 30 dias</option>
+                            </select>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="cta-button form-cta">QUERO TRANSFORMAR MEU CORPO <i class="fas fa-arrow-right"></i></button>
+                            <div class="form-security">
+                                <i class="fas fa-lock"></i>
+                                <span>Seus dados estão 100% seguros</span>
+                            </div>
+                        </div>
                     </form>
-                    <div class="form-security">
-                        <i class="fas fa-lock"></i>
-                        <span>Seus dados estão 100% seguros</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +126,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="assets/trainer.jpg" alt="Personal Trainer" class="trainer-photo">
+                    <img src="assets/personal.png" alt="Personal Trainer" class="trainer-photo">
                 </div>
                 <div class="about-text">
                     <span class="section-tag">SOBRE MIM</span>
@@ -152,30 +186,18 @@
             <span class="section-tag">DEPOIMENTOS</span>
             <h2>Histórias de <span class="highlight">sucesso</span></h2>
             <div class="testimonials-carousel" id="testimonialCarousel">
-                <div class="testimonial-slide">
-                    <div class="before-after-container">
-                        <div class="before-after-image">
-                            <img src="assets/anteshomem01.png" alt="Antes" class="before-image">
-                            <span class="image-label">PEDRO</span>
-                        </div>
-                        <div class="before-after-image">
-                            <img src="assets/anteshomem02.png" alt="Depois" class="after-image">
-                            <span class="image-label">LUCAS</span>
-                        </div>
-                        <div class="before-after-image">
-                            <img src="assets/antesmulher01.png" alt="Antes" class="before-image">
-                            <span class="image-label">RAFAELA</span>
-                        </div>
-                        <div class="before-after-image">
-                            <img src="assets/antesmulher02.png" alt="Depois" class="after-image">
-                            <span class="image-label">VANESSA</span>
-                        </div>
+                <div class="before-after-container">
+                    <div class="before-after-pair">
+                        <img src="assets/anteshomem01.png" alt="Antes" class="before-after-image">
+                        <img src="assets/anteshomem02.png" alt="Depois" class="before-after-image">
+                    </div>
+                    <div class="before-after-pair">
+                        <img src="assets/antesmulher01.png" alt="Antes" class="before-after-image">
+                        <img src="assets/antesmulher02.png" alt="Depois" class="before-after-image">
                     </div>
                 </div>
-            </div>
-            <div class="carousel-controls">
-                <button id="prevButton" class="carousel-control"><i class="fas fa-chevron-left"></i></button>
-                <button id="nextButton" class="carousel-control"><i class="fas fa-chevron-right"></i></button>
+                <button id="prevButton" class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextButton" class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -191,14 +213,14 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Qual a frequência recomendada de treinos? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Recomendamos de 3 a 4 treinos por semana para resultados ideais, mas o programa será adaptado Ã  sua disponibilidade.</div>
+                    <div class="faq-answer">Recomendamos de 3 a 4 treinos por semana para resultados ideais, mas o programa será adaptado à sua disponibilidade.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Preciso ter experiência prévia com exercícios? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Não! Nossos programas são adaptados para todos os níveis, desde iniciantes até atletas avançados.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">O plano nutricional Ã© restritivo? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-question">O plano nutricional é restritivo? <i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Não trabalhamos com dietas restritivas, mas com reeducação alimentar sustentável e adaptada às suas preferências.</div>
                 </div>
             </div>
@@ -213,14 +235,14 @@
                 <div class="offer-details">
                     <h3>Pacote Completo de Transformação</h3>
                     <ul class="offer-features">
-                        <li><i class="fas fa-check"></i> Avaliação física completa</li>
+                        <li><i class="fas fa-check"></i> Avaliação física completa personalizada</li>
                         <li><i class="fas fa-check"></i> Orientação nutricional detalhada</li>
                         <li><i class="fas fa-check"></i> Reavaliações mensais com ajustes</li>
                         <li><i class="fas fa-check"></i> Acesso ao app exclusivo de treinos</li>
                     </ul>
                     <div class="offer-price">
                         <p class="price-old">De R$ 499,90 por apenas</p>
-                        <p class="price-new">R$ 299,90<span>/mês</span></p>
+                        <p class="price-new">R$299,90<span>/mês</span></p>
                         <p class="price-installment">ou 12x de R$ 27,90 no cartão</p>
                     </div>
                     <div class="offer-timer" id="offerTimer">
@@ -243,11 +265,9 @@
                 </div>
                 <button class="cta-button cta-large">GARANTIR MINHA VAGA AGORA <i class="fas fa-arrow-right"></i></button>
                 <div class="guarantee">
-                    <img src="assets/guarantee-seal.png" alt="Selo de Garantia" class="guarantee-seal">
-                    <p>Garantia incondicional de 7 dias ou seu dinheiro de volta</p>
+                    <img src="assets/selo-de-garantia.png" alt="Selo de Garantia" class="guarantee-seal">
                 </div>
                 <div class="payment-methods">
-                    <p>Formas de pagamento aceitas:</p>
                     <div class="payment-icons">
                         <i class="fab fa-cc-visa"></i>
                         <i class="fab fa-cc-mastercard"></i>
@@ -260,6 +280,10 @@
     </section>
 
     <script src="script.js"></script>
+    <script src="form.js"></script>
+    <script src="carousel.js"></script>
+    <script src="timer.js"></script>
+    <script src="faq.js"></script>
     </body>
 </html>
 
