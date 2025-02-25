@@ -1,12 +1,12 @@
 .faq-section {
     padding: 60px 0;
-    background-color: var(--background);
+    background-color: var(--bg-light);
+    color: var(--text);
     display: flex;
-    justify-content: flex-start; /* Alterado de center para flex-start */
+    justify-content: flex-start;
     align-items: flex-start;
     min-height: 50vh;
 }
-
 
 .faq-container {
     max-width: 800px;
@@ -17,18 +17,18 @@
 }
 
 .faq-title {
-    text-align: left; /* Já está correto */
+    text-align: left;
     margin-bottom: 40px;
-    color: var(--primary);
+    color: var(--text);
     font-size: 2.5rem;
     font-weight: 700;
 }
 
 .faq-item {
-    background: white;
+    background: var(--white);
     border-radius: 8px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     overflow: hidden;
 }
 
@@ -36,33 +36,20 @@
     padding: 20px;
     cursor: pointer;
     display: flex;
-    justify-content: space-between; /* Mantido para separar o texto e o ícone */
+    justify-content: space-between;
     align-items: flex-start;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text);
     transition: background-color 0.3s ease;
-    text-align: left; /* Adicionado para garantir alinhamento à esquerda */
-}
-
-.faq-question:hover {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-.faq-question i {
-    color: var(--secondary);
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
+    text-align: left;
 }
 
 .faq-answer {
     padding: 0 20px;
-    background-color: #f8f9fa;
+    background-color: var(--bg-light);
     border-radius: 0 0 8px 8px;
     line-height: 1.6;
-    color: #666;
+    color: var(--text-light);
     text-align: left;
     max-height: 0;
     overflow: hidden;

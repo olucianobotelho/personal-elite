@@ -1,38 +1,44 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Credential Numbers Animation
-    const credentials = document.querySelectorAll('.credential-number');
-    let hasAnimated = false;
-
-    function animateNumbers() {
-        credentials.forEach(credential => {
-            const target = parseInt(credential.textContent);
-            let current = 0;
-            const increment = target / 50;
-            const duration = 2000;
-            const stepTime = duration / 50;
-
-            const counter = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    credential.textContent = target + (credential.textContent.includes('+') ? '+' : '');
-                    clearInterval(counter);
-                } else {
-                    credential.textContent = Math.round(current) + (credential.textContent.includes('+') ? '+' : '');
-                }
-            }, stepTime);
-        });
-        hasAnimated = true;
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    
+    if (currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        document.querySelector('.theme-toggle i').classList.replace('fa-sun', 'fa-moon');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
     }
+}
 
-    // Intersection Observer for credential numbers
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                animateNumbers();
-            }
-        });
-    }, { threshold: 0.5 });
+// Function to set initial theme
+function setInitialTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const themeToggle = document.querySelector('.theme-toggle i');
+    
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        themeToggle.classList.add('fa-moon');
+    }
+}
 
-    credentials.forEach(credential => observer.observe(credential));
+// Create and append theme toggle button
+function createThemeToggle() {
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggle.addEventListener('click', toggleDarkMode);
+    document.body.appendChild(themeToggle);
+}
+
+// Initialize dark mode functionality
+document.addEventListener('DOMContentLoaded', () => {
+    createThemeToggle();
+    setInitialTheme();
 });
 
