@@ -482,19 +482,25 @@ function initFormSubmission() {
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
                 
-                // Enviar dados para o backend
-                const response = await fetch('submit.php', {
+                // Enviar dados para o backend serverless
+                const response = await fetch('/api/submit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify(data)
                 });
                 
-                const result = await response.json();
+                let result;
+                try {
+                    result = await response.json();
+                } catch (e) {
+                    throw new Error('Erro ao processar resposta do servidor');
+                }
                 
                 if (!response.ok) {
-                    throw new Error(result.message || 'Erro ao enviar formulário');
+                    throw new Error(result?.message || 'Erro ao enviar formulário. Por favor, tente novamente.');
                 }
                 
                 // Mostrar mensagem de sucesso
